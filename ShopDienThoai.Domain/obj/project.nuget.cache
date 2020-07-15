@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "sKrFtJRk3+Gc8aT5tI8tJ2vqNJq5dR29IaQNyS/erByKpT6JHL4PmA1fVQOkS1Z87kHJWgfCxkYXZlrgSqKEjw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Domain\\ShopDienThoai.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nhung\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nhung\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

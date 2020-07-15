@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoaiAPI\\ShopDienThoaiAPI.csproj",
-      "projectName": "ShopDienThoaiAPI",
-      "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoaiAPI\\ShopDienThoaiAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoaiAPI\\ShopDienThoai.API.csproj",
+      "projectName": "ShopDienThoai.API",
+      "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoaiAPI\\ShopDienThoai.API.csproj",
       "packagesPath": "C:\\Users\\Nhung\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoaiAPI\\obj\\",
       "projectStyle": "PackageReference",
