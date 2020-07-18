@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ShopDienThoai.Domain.Response
 {
-    class Brand
+    public class Brand
     {
+        public int BrandId { get; set; }
+        public string Name { get; set; }
     }
 }

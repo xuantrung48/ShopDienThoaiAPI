@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShopDienThoai.BAL.Interface\ShopDienThoai.BAL.Interface.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.DAL.Interface\ShopDienThoai.DAL.Interface.csproj" />
+  </ItemGroup>
+
 </Project>

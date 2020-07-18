@@ -9,8 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ShopDienThoai.BAL;
+using ShopDienThoai.BAL.Interface;
+using ShopDienThoai.DAL;
+using ShopDienThoai.DAL.Interface;
 
-namespace ShopDienThoaiAPI
+namespace ShopDienThoai.API
 {
     public class Startup
     {
@@ -24,7 +28,10 @@ namespace ShopDienThoaiAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllers();
+            services.AddTransient<IBrandRepository, BrandRepository>();
+            services.AddTransient<IBrandService, BrandService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,14 @@
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.DAL.deps.json
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.DAL.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.csprojAssemblyReference.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.AssemblyInfoInputs.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.AssemblyInfo.cs
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.DAL.Interface.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.Domain.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.DAL.pdb
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.DAL.Interface.pdb
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\bin\Debug\netstandard2.0\ShopDienThoai.Domain.pdb
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.csproj.CopyComplete
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.DAL\obj\Debug\netstandard2.0\ShopDienThoai.DAL.pdb

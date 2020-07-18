@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopDienThoai.BAL\ShopDienThoai.BAL.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.DAL\ShopDienThoai.DAL.csproj" />
+    <ProjectReference Include="..\ShopDienThoai\ShopDienThoai.csproj" />
+  </ItemGroup>
+
+
+</Project>

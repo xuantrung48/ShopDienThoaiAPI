@@ -25,6 +25,42 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "ShopDienThoai.BAL.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "ShopDienThoai.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShopDienThoai.BAL.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShopDienThoai.BAL.Interface.dll": {}
+        }
+      },
+      "ShopDienThoai.DAL.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "ShopDienThoai.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ShopDienThoai.DAL.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShopDienThoai.DAL.Interface.dll": {}
+        }
+      },
+      "ShopDienThoai.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/ShopDienThoai.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShopDienThoai.Domain.dll": {}
+        }
       }
     }
   },
@@ -172,11 +208,28 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "ShopDienThoai.BAL.Interface/1.0.0": {
+      "type": "project",
+      "path": "../ShopDienThoai.BAL.Interface/ShopDienThoai.BAL.Interface.csproj",
+      "msbuildProject": "../ShopDienThoai.BAL.Interface/ShopDienThoai.BAL.Interface.csproj"
+    },
+    "ShopDienThoai.DAL.Interface/1.0.0": {
+      "type": "project",
+      "path": "../ShopDienThoai.DAL.Interface/ShopDienThoai.DAL.Interface.csproj",
+      "msbuildProject": "../ShopDienThoai.DAL.Interface/ShopDienThoai.DAL.Interface.csproj"
+    },
+    "ShopDienThoai.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ShopDienThoai.Domain/ShopDienThoai.Domain.csproj",
+      "msbuildProject": "../ShopDienThoai.Domain/ShopDienThoai.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "ShopDienThoai.BAL.Interface >= 1.0.0",
+      "ShopDienThoai.DAL.Interface >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -208,7 +261,14 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL.Interface\\ShopDienThoai.BAL.Interface.csproj": {
+              "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL.Interface\\ShopDienThoai.BAL.Interface.csproj"
+            },
+            "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL.Interface\\ShopDienThoai.DAL.Interface.csproj": {
+              "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL.Interface\\ShopDienThoai.DAL.Interface.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

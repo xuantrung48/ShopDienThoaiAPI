@@ -4,5 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShopDienThoai.BAL.Interface\ShopDienThoai.BAL.Interface.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.BAL\ShopDienThoai.BAL.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.DAL.Interface\ShopDienThoai.DAL.Interface.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.DAL\ShopDienThoai.DAL.csproj" />
+    <ProjectReference Include="..\ShopDienThoai.Domain\ShopDienThoai.Domain.csproj" />
+  </ItemGroup>
+
 
 </Project>

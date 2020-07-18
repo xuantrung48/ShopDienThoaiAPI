@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "ShopDienThoai.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/ShopDienThoai.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ShopDienThoai.Domain.dll": {}
+        }
       }
     }
   },
@@ -172,11 +182,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "ShopDienThoai.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ShopDienThoai.Domain/ShopDienThoai.Domain.csproj",
+      "msbuildProject": "../ShopDienThoai.Domain/ShopDienThoai.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "ShopDienThoai.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -208,7 +224,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Domain\\ShopDienThoai.Domain.csproj": {
+              "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Domain\\ShopDienThoai.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
