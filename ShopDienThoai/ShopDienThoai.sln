@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.BAL", "..\Sho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.Domain", "..\ShopDienThoai.Domain\ShopDienThoai.Domain.csproj", "{95ED565A-9290-46E5-8E99-673EC65819C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopDienThoai.Web", "..\ShopDienThoai.Web\ShopDienThoai.Web.csproj", "{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,14 @@ Global
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|x64.ActiveCfg = Release|Any CPU
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|x64.Build.0 = Release|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|x64.Build.0 = Debug|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|x64.ActiveCfg = Release|Any CPU
+		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

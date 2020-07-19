@@ -139,9 +139,6 @@ C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Sh
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\ShopDienThoai.Domain.pdb
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\ShopDienThoai.pdb
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.csprojAssemblyReference.cache
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.csproj.CoreCompileInputs.cache
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.AssemblyInfoInputs.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.AssemblyInfo.cs
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.RazorTargetAssemblyInfo.cache
@@ -151,3 +148,8 @@ C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\st
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.dll
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.pdb
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.genruntimeconfig.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.csproj.CoreCompileInputs.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cache
