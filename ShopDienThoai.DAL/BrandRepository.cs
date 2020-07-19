@@ -48,7 +48,7 @@ namespace ShopDienThoai.DAL
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BrandId", brand.BrandId);
                 parameters.Add("@Name", brand.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "SaveBrand", parameters, commandType: CommandType.StoredProcedure);
+                int id = SqlMapper.ExecuteScalar<int>(conn, "EditBrand", parameters, commandType: CommandType.StoredProcedure);
                 return id;
             }
             catch(Exception e)
@@ -63,7 +63,7 @@ namespace ShopDienThoai.DAL
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Name", model.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "SaveBrand", parameters, commandType: CommandType.StoredProcedure);
+                int id = SqlMapper.ExecuteScalar<int>(conn, "CreateBrand", parameters, commandType: CommandType.StoredProcedure);
                 return id;
             }
             catch (Exception e)

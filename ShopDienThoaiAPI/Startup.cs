@@ -32,6 +32,8 @@ namespace ShopDienThoai.API
             services.AddControllers();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
