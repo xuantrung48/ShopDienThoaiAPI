@@ -87,13 +87,15 @@ namespace TheGioiDienThoai.Controllers
             return RedirectToAction("Index", "Account");
         }
         [HttpGet]
-        public IActionResult Login(string returnUrl)
+        public IActionResult Login(string returnUrl, string productId)
         {
             if (signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Account");
             }
             ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ProductId = productId;
+            ViewBag.Product = (from p in context.Products where p.ProductId == productId select p).ToList().FirstOrDefault();
             return View();
         }
         [HttpPost]
@@ -107,6 +109,8 @@ namespace TheGioiDienThoai.Controllers
                     var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                     if (result.Succeeded)
                     {
+                        if (model.ProductId != null)
+                            return RedirectToAction("Order", "Order", new { model.ProductId });
                         if (!string.IsNullOrEmpty(model.ReturnUrl))
                             return Redirect(model.ReturnUrl);
                         return RedirectToAction("Index", "Home");
@@ -119,12 +123,14 @@ namespace TheGioiDienThoai.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult Register(string productId)
         {
             if (signInManager.IsSignedIn(User))
             {
-                return RedirectToAction("Index", "Account");
+                RedirectToAction("UserBuy", "Order", new { productId });
             }
+            ViewBag.ProductId = productId;
+            ViewBag.Product = (from p in context.Products where p.ProductId == productId select p).ToList().FirstOrDefault();
             return View();
         }
         [HttpPost]
@@ -158,6 +164,8 @@ namespace TheGioiDienThoai.Controllers
                     if (addRoleResult.Succeeded)
                     {
                         await signInManager.SignInAsync(user, false);
+                        if (model.ProductId != null)
+                            return RedirectToAction("Order", "Order", new { model.ProductId });
                         return RedirectToAction("Index", "Account");
                     }
                     foreach (var error in addRoleResult.Errors)
@@ -167,87 +175,6 @@ namespace TheGioiDienThoai.Controllers
                 else
                     foreach(var error in result.Errors)
                         ModelState.AddModelError("", error.Description);
-            }
-            return View();
-        }
-        [HttpGet]
-        public IActionResult LoginAndBuy(string id)
-        {
-            if (signInManager.IsSignedIn(User))
-            {
-                return RedirectToAction("Index", "Account");
-            }
-            ViewBag.ProductId = id;
-            ViewBag.Product = (from p in context.Products where p.ProductId == id select p).ToList().FirstOrDefault();
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> LoginAndBuy(LoginAndBuyViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = (from u in context.Users where u.Email == model.Email select u).FirstOrDefault();
-                if (user.IsDeleted == false)
-                {
-                    var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("UserBuy", "Order", new { model.ProductId });
-                    }
-                }
-                ModelState.AddModelError("", "Sai email hoặc mật khẩu!");
-                //if (!string.IsNullOrEmpty(model.ReturnUrl))
-                //    return Redirect(model.ReturnUrl);
-            }
-            return View();
-        }
-        [HttpGet]
-        public IActionResult RegisterAndBuy(string id)
-        {
-            if (signInManager.IsSignedIn(User))
-            {
-                RedirectToAction("UserBuy", "Order", new { id });
-            }
-            ViewBag.ProductId = id;
-            ViewBag.Product = (from p in context.Products where p.ProductId == id select p).ToList().FirstOrDefault();
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> RegisterAndBuy(RegisterAndBuyViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new User()
-                {
-                    Email = model.Email,
-                    UserName = model.Email,
-                    Address = model.Address,
-                    Name = model.Name,
-                    PhoneNumber = model.PhoneNumber,
-                    Gender = model.Gender,
-                };
-                if (model.ImageFile != null)
-                {
-                    string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "images\\users");
-                    string fileName = $"{Guid.NewGuid()}{Path.GetExtension(model.ImageFile.FileName)}";
-                    var filePath = Path.Combine(uploadFolder, fileName);
-                    using var fs = new FileStream(filePath, FileMode.Create);
-                    model.ImageFile.CopyTo(fs);
-                    user.ProfilePicture = fileName;
-                }
-                var result = await userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, false);
-                    return RedirectToAction("UserBuy", "Order", new { model.ProductId });
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
             }
             return View();
         }

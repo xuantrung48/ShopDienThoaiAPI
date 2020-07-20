@@ -26,6 +26,8 @@ namespace TheGioiDienThoai.Controllers
         private readonly ICustomerRepository customerRepository;
         private readonly IOrderDetailRepository orderDetailRepository;
         private readonly ICarouselImageRepository carouselImageRepository;
+        private readonly IEnumerable<Category> categories;
+        private readonly IEnumerable<Brand> brands;
         public HomeController(IProductRepository productRepository, IBrandRepository brandRepository, ICategoryRepository categoryRepository, AppDbContext context, SignInManager<User> signInManager, UserManager<User> userManager, IOrderRepository orderRepository, ICustomerRepository customerRepository, IOrderDetailRepository orderDetailRepository, ICarouselImageRepository carouselImageRepository)
         {
             this.context = context;
@@ -38,11 +40,13 @@ namespace TheGioiDienThoai.Controllers
             this.customerRepository = customerRepository;
             this.orderDetailRepository = orderDetailRepository;
             this.carouselImageRepository = carouselImageRepository;
+            categories = categoryRepository.Get().ToList();
+            brands = brandRepository.Get().ToList();
         }
         public IActionResult Index()
         {
-            ViewBag.Brands = brandRepository.Get().ToList();
-            ViewBag.Categories = categoryRepository.Get().ToList();
+            ViewBag.Brands = brands;
+            ViewBag.Categories = categories;
             ViewBag.Products = productRepository.Get().ToList();
             ViewBag.CarouselImages = carouselImageRepository.Get().ToList();
             return View();
@@ -63,8 +67,8 @@ namespace TheGioiDienThoai.Controllers
                                    p.BrandId == product.BrandId
                                    select p).ToList();
             relatedProducts.Remove(context.Products.Find(id));
-            ViewBag.Brands = brandRepository.Get().ToList();
-            ViewBag.Categories = categoryRepository.Get().ToList();
+            ViewBag.Brands = brands;
+            ViewBag.Categories = categories;
             ViewBag.RelatedProducts = relatedProducts.Take(6);
             return View(product);
         }
@@ -113,8 +117,8 @@ namespace TheGioiDienThoai.Controllers
             if (sortByPrice == "asc")
                 products = products.OrderBy(x => x.Price).ToList();
 
-            ViewBag.Categories = (from c in context.Categories select c).ToList();
-            ViewBag.Brands = (from b in context.Brands select b).ToList();
+            ViewBag.Categories = categories;
+            ViewBag.Brands = brands;
             ViewBag.CategoryId = categoryId;
             ViewBag.BrandId = brandId;
             ViewBag.KeyWord = keyWord;

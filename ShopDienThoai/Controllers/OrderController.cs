@@ -45,37 +45,41 @@ namespace TheGioiDienThoai.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult UserBuy(string ProductId)
+        public IActionResult Order(string ProductId)
         {
             var product = (from p in context.Products where p.IsDeleted == false && p.ProductId == ProductId select p).ToList().FirstOrDefault();
             if (product.Remain == 0)
                 return RedirectToAction("Index", "Home");
-            if (!signInManager.IsSignedIn(User))
-                return RedirectToAction("AnonymousBuy", new { ProductId });
-            var currentUser = userManager.FindByNameAsync(User.Identity.Name).Result;
-            var customer = new CustomerViewModel()
+            var customer = new CustomerViewModel();
+            if (signInManager.IsSignedIn(User))
             {
-                Name = currentUser.Name,
-                PhoneNumber = currentUser.PhoneNumber,
-                Address = currentUser.Address,
-                ProductId = ProductId
-            };
+                var currentUser = userManager.FindByNameAsync(User.Identity.Name).Result;
+                customer = new CustomerViewModel()
+                {
+                    Name = currentUser.Name,
+                    PhoneNumber = currentUser.PhoneNumber,
+                    Address = currentUser.Address,
+                    ProductId = ProductId
+                };
+            }
             ViewBag.Product = product;
             return View(customer);
         }
         [HttpPost]
-        public IActionResult UserBuy(CustomerViewModel model)
+        public IActionResult Order(CustomerViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var currentUser = userManager.FindByNameAsync(User.Identity.Name).Result;
+                var user = new User();
+                if (signInManager.IsSignedIn(User))
+                    user = userManager.FindByNameAsync(User.Identity.Name).Result;
                 var product = (from p in context.Products where p.IsDeleted == false && p.ProductId == model.ProductId select p).ToList().FirstOrDefault();
                 var customer = new Customer()
                 {
                     CustomerName = model.Name,
                     Address = model.Address,
                     PhoneNumber = model.PhoneNumber,
-                    UserId = currentUser.Id
+                    UserId = signInManager.IsSignedIn(User) ? user.Id : null
                 };
                 var createCustomer = customerRepository.Create(customer);
                 var order = new Order()
@@ -127,52 +131,6 @@ namespace TheGioiDienThoai.Controllers
                                  where o.OrderId == id
                                  select u).ToList().FirstOrDefault();
             return View(orderDetail);
-        }
-        [HttpGet]
-        public IActionResult AnonymousBuy(string id)
-        {
-            var product = (from p in context.Products where p.IsDeleted == false && p.ProductId == id select p).ToList().FirstOrDefault();
-            if (product.Remain == 0)
-                return RedirectToAction("Index", "Home");
-            if (signInManager.IsSignedIn(User))
-                return RedirectToAction("UserBuy", new { ProductId = id });
-
-            ViewBag.Product = product;
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AnonymousBuy(CustomerViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var product = (from p in context.Products where p.IsDeleted == false && p.ProductId == model.ProductId select p).ToList().FirstOrDefault();
-                var customer = new Customer()
-                {
-                    CustomerName = model.Name,
-                    Address = model.Address,
-                    PhoneNumber = model.PhoneNumber
-                };
-                var createCustomer = customerRepository.Create(customer);
-                var order = new Order()
-                {
-                    CustomerId = createCustomer.CustomerId,
-                    OrderTime = DateTime.Now,
-                    Status = OrderStatus.Pending
-                };
-                var createOrder = orderRepository.Create(order);
-                var orderDetail = new OrderDetail()
-                {
-                    OrderId = createOrder.OrderId,
-                    ProductId = product.ProductId,
-                    Price = product.Price,
-                    Quantity = 1
-                };
-                var createOrderDetail = orderDetailRepository.Create(orderDetail);
-                context.Products.Find(model.ProductId).Remain -= 1;
-                context.SaveChanges();
-                return RedirectToAction("OrderDetail", new { id = createOrder.OrderId });
-            }
-            return View();
         }
         public IActionResult Cancel(string id)
         {

@@ -33,5 +33,6 @@ namespace TheGioiDienThoai.ViewModels.User
         public string PhoneNumber { get; set; }
         public Gender Gender { get; set; }
         public string RoleId { get; set; }
+        public string ProductId { get; set; }
     }
 }

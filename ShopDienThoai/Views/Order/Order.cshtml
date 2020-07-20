@@ -1,6 +1,6 @@
 ﻿@model CustomerViewModel
 @{
-    ViewBag.Title = "Thông tin đặt hàng - ";
+    ViewBag.Title = "Thông tin đặt hàng";
     var product = ViewBag.Product as Product;
 }
 <div class="row">
@@ -9,8 +9,9 @@
             <div class="card-body rounded bg-light">
                 <h2 class="card-title text-center">Đặt hàng</h2>
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <form class="form-signin" enctype="multipart/form-data" asp-controller="Order" asp-action="AnonymousBuy" method="post">
+                <form class="form-signin" enctype="multipart/form-data" asp-controller="Order" asp-action="Order" method="post">
                     <h4 class="mb-3">Thông tin khách hàng</h4>
+
                     <input hidden asp-for="ProductId" value="@product.ProductId" />
                     <div class="form-label-group">
                         <input asp-for="Name" class="form-control" placeholder="Tên người nhận hàng">
