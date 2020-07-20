@@ -48,7 +48,7 @@ namespace TheGioiDienThoai.Models.ProductModel
             if(brandToRemove != null)
             {
                 var productsInBrand = (from p in context.Products where p.BrandId == id select p);
-                if (productsInBrand != null)
+                if (productsInBrand.ToList().Count > 0)
                     return false;
                 brandToRemove.IsDeleted = true;
                 return context.SaveChanges() > 0;

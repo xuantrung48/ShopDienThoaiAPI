@@ -49,7 +49,7 @@ namespace TheGioiDienThoai.Models.ProductModel
             if (categoryToRemove != null)
             {
                 var productsInCategory = (from p in context.Products where p.CategoryId == id select p);
-                if (productsInCategory != null)
+                if (productsInCategory.ToList().Count > 0)
                     return false;
                 context.Categories.Remove(categoryToRemove);
                 return context.SaveChanges() > 0;
