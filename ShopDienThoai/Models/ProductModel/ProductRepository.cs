@@ -23,6 +23,7 @@ namespace TheGioiDienThoai.Models.ProductModel
         public Product Create(Product product)
         {
             product.IsDeleted = false;
+            product.CreatedTime = DateTime.Now;
             product.ProductId = Guid.NewGuid().ToString();
             context.Products.Add(product);
             context.SaveChanges();
@@ -39,7 +40,7 @@ namespace TheGioiDienThoai.Models.ProductModel
 
         public IEnumerable<Product> Get()
         {
-            return from p in context.Products where p.IsDeleted == false select p;
+            return (from p in context.Products where p.IsDeleted == false select p).OrderByDescending(p => p.CreatedTime);
         }
 
         public ProductDetailViewModel Get(string id)

@@ -36,6 +36,6 @@ namespace TheGioiDienThoai.Models.ProductModel
         public int? Ram { get; set; }
         public int? Rom { get; set; }
         public bool IsDeleted { get; set; }
-
+        public DateTime CreatedTime { get; set; }
     }
 }

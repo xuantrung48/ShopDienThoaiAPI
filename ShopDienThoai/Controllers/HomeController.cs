@@ -127,7 +127,7 @@ namespace TheGioiDienThoai.Controllers
         }
         public IActionResult Category(int id, int page = 1)
         {
-            var products = (from p in context.Products where p.IsDeleted == false && p.CategoryId == id && p.Remain > 0 select p).ToList();
+            var products = (from p in context.Products where p.IsDeleted == false && p.CategoryId == id && p.Remain > 0 select p).OrderByDescending(p => p.CreatedTime).ToList();
             ViewBag.Categories = (from c in context.Categories select c).ToList();
             ViewBag.Brands = (from b in context.Brands select b).ToList();
             var categories = (from c in context.Categories where c.CategoryId == id select c).ToList();

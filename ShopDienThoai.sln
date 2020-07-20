@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai", "ShopDienThoai.csproj", "{7618689E-B40D-4183-B339-467091318203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai", "ShopDienThoai\ShopDienThoai.csproj", "{7618689E-B40D-4183-B339-467091318203}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.API", "..\ShopDienThoaiAPI\ShopDienThoai.API.csproj", "{AB9BEF46-67A2-4C91-9330-0C25E99C9FE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.API", "ShopDienThoaiAPI\ShopDienThoai.API.csproj", "{AB9BEF46-67A2-4C91-9330-0C25E99C9FE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.DAL.Interface", "..\ShopDienThoai.DAL.Interface\ShopDienThoai.DAL.Interface.csproj", "{760B8291-5F02-4E33-992C-F6DC41A1C96B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.DAL.Interface", "ShopDienThoai.DAL.Interface\ShopDienThoai.DAL.Interface.csproj", "{760B8291-5F02-4E33-992C-F6DC41A1C96B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.DAL", "..\ShopDienThoai.DAL\ShopDienThoai.DAL.csproj", "{E7A0E705-3E27-40FE-A9C5-96001971C12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.DAL", "ShopDienThoai.DAL\ShopDienThoai.DAL.csproj", "{E7A0E705-3E27-40FE-A9C5-96001971C12A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.BAL.Interface", "..\ShopDienThoai.BAL.Interface\ShopDienThoai.BAL.Interface.csproj", "{15798908-6AFD-462E-9BD2-2DE21220658E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.BAL.Interface", "ShopDienThoai.BAL.Interface\ShopDienThoai.BAL.Interface.csproj", "{15798908-6AFD-462E-9BD2-2DE21220658E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.BAL", "..\ShopDienThoai.BAL\ShopDienThoai.BAL.csproj", "{F07A17BE-9CA4-4B12-B1D5-9EB2597D6E22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.BAL", "ShopDienThoai.BAL\ShopDienThoai.BAL.csproj", "{F07A17BE-9CA4-4B12-B1D5-9EB2597D6E22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.Domain", "..\ShopDienThoai.Domain\ShopDienThoai.Domain.csproj", "{95ED565A-9290-46E5-8E99-673EC65819C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopDienThoai.Domain", "ShopDienThoai.Domain\ShopDienThoai.Domain.csproj", "{95ED565A-9290-46E5-8E99-673EC65819C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopDienThoai.Web", "..\ShopDienThoai.Web\ShopDienThoai.Web.csproj", "{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopDienThoai.Web", "ShopDienThoai.Web\ShopDienThoai.Web.csproj", "{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,14 +83,14 @@ Global
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|x64.ActiveCfg = Release|Any CPU
 		{95ED565A-9290-46E5-8E99-673EC65819C6}.Release|x64.Build.0 = Release|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Debug|x64.Build.0 = Debug|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|x64.ActiveCfg = Release|Any CPU
-		{5FAD2FAC-30BF-4507-8C8B-7F0E9E17C1A1}.Release|x64.Build.0 = Release|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Debug|x64.Build.0 = Debug|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Release|x64.ActiveCfg = Release|Any CPU
+		{A33C87C7-AEFE-4B22-B7DB-F286D14F76A1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

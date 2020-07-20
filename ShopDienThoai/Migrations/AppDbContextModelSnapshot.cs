@@ -396,6 +396,9 @@ namespace TheGioiDienThoai.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -447,6 +450,7 @@ namespace TheGioiDienThoai.Migrations
                             BrandId = 0,
                             CPU = "Exynos 9611 8 nhân",
                             CategoryId = 0,
+                            CreatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Galaxy A51 8GB là phiên bản nâng cấp RAM của smartphone tầm trung đình đám Galaxy A51 từ Samsung. Sản phẩm nổi bật với thiết kế sang trọng, màn hình Infinity-O cùng cụm 4 camera đột phá.",
                             FrontCamera = "32 MP",
                             IsDeleted = false,

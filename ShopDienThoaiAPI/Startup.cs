@@ -30,6 +30,7 @@ namespace ShopDienThoai.API
         {
             services.AddMvc();
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<ICategoryService, CategoryService>();
@@ -51,6 +52,12 @@ namespace ShopDienThoai.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }

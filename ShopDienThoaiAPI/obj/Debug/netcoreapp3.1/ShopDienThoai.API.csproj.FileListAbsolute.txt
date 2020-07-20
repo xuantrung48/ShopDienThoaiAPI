@@ -148,8 +148,10 @@ C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\st
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.dll
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.pdb
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.genruntimeconfig.cache
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.csproj.CoreCompileInputs.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoaiAPI\obj\Debug\netcoreapp3.1\ShopDienThoai.API.MvcApplicationPartsAssemblyInfo.cache
