@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheGioiDienThoai.Models.ProductModel
+namespace ShopDienThoai.Models.ProductModel
 {
     public class Image
     {

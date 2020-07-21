@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.ViewModels;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class DashboardController : Controller

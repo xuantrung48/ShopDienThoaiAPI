@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.Models.Validation;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.Validation;
 
-namespace TheGioiDienThoai.ViewModels.Product
+namespace ShopDienThoai.ViewModels.Product
 {
     public class CreateProductViewModel
     {

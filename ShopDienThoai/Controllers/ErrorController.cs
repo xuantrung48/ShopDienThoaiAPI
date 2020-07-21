@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     public class ErrorController : Controller
     {
+        [HttpGet]
         [Route("Error/{StatusCode}")]
         public IActionResult PageNotFound(int StatusCode)
         {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TheGioiDienThoai.Migrations
+namespace ShopDienThoai.Migrations
 {
     public partial class AddAppSettigTable : Migration
     {

@@ -6,10 +6,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.UserModel;
-using TheGioiDienThoai.Models.Validation;
+using ShopDienThoai.Models.UserModel;
+using ShopDienThoai.Models.Validation;
 
-namespace TheGioiDienThoai.ViewModels
+namespace ShopDienThoai.ViewModels
 {
     public class AppSettingViewModel
     {

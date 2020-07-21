@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.ViewModels;
-using TheGioiDienThoai.ViewModels.Product;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.ViewModels;
+using ShopDienThoai.ViewModels.Product;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ProductsManagerController : Controller

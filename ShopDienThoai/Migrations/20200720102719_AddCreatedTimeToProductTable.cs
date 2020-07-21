@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TheGioiDienThoai.Migrations
+namespace ShopDienThoai.Migrations
 {
     public partial class AddCreatedTimeToProductTable : Migration
     {

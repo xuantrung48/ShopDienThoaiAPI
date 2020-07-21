@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheGioiDienThoai.ViewModels.Order
+namespace ShopDienThoai.ViewModels.Order
 {
     public class CustomerViewModel
     {

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.UserModel;
-using TheGioiDienThoai.ViewModels;
-using TheGioiDienThoai.ViewModels.Order;
-using TheGioiDienThoai.ViewModels.User;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.UserModel;
+using ShopDienThoai.ViewModels;
+using ShopDienThoai.ViewModels.Order;
+using ShopDienThoai.ViewModels.User;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     public class AccountController : Controller
     {

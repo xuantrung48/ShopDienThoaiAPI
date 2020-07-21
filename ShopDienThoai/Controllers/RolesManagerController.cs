@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.UserModel;
-using TheGioiDienThoai.ViewModels;
-using TheGioiDienThoai.ViewModels.Role;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.UserModel;
+using ShopDienThoai.ViewModels;
+using ShopDienThoai.ViewModels.Role;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class RolesManagerController : Controller

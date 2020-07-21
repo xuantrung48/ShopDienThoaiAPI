@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.ProductModel;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.ProductModel;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class CategoriesManagerController : Controller

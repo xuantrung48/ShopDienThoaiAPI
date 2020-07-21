@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheGioiDienThoai.Models.Validation
+namespace ShopDienThoai.Models.Validation
 {
     public class AllowedExtensionsAttribute : ValidationAttribute
     {

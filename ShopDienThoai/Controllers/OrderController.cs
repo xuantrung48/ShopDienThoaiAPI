@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.OrderModel;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.Models.UserModel;
-using TheGioiDienThoai.ViewModels.Order;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.OrderModel;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.UserModel;
+using ShopDienThoai.ViewModels.Order;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     public class OrderController : Controller
     {

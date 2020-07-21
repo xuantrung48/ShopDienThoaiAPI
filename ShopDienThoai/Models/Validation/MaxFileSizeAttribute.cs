@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TheGioiDienThoai.Models.Validation
+namespace ShopDienThoai.Models.Validation
 {
     public class MaxFileSizeAttribute : ValidationAttribute
     {

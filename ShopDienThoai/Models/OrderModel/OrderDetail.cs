@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.ProductModel;
 
-namespace TheGioiDienThoai.Models.OrderModel
+namespace ShopDienThoai.Models.OrderModel
 {
     public class OrderDetail
     {

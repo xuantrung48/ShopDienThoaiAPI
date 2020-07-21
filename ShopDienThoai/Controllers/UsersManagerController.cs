@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TheGioiDienThoai.Models.UserModel;
-using TheGioiDienThoai.ViewModels;
-using TheGioiDienThoai.ViewModels.User;
+using ShopDienThoai.Models.UserModel;
+using ShopDienThoai.ViewModels;
+using ShopDienThoai.ViewModels.User;
 
-namespace TheGioiDienThoai.Controllers
+namespace ShopDienThoai.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class UsersManagerController : Controller

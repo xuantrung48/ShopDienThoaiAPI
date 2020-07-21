@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.ProductModel;
 
-namespace TheGioiDienThoai.ViewModels.Product
+namespace ShopDienThoai.ViewModels.Product
 {
     public class ProductDetailViewModel
     {

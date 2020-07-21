@@ -1,7 +1,6 @@
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\bin\Debug\netstandard2.0\ShopDienThoai.Domain.deps.json
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\bin\Debug\netstandard2.0\ShopDienThoai.Domain.dll
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\bin\Debug\netstandard2.0\ShopDienThoai.Domain.pdb
-C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\obj\Debug\netstandard2.0\ShopDienThoai.Domain.csprojAssemblyReference.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\obj\Debug\netstandard2.0\ShopDienThoai.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\obj\Debug\netstandard2.0\ShopDienThoai.Domain.AssemblyInfoInputs.cache
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Domain\obj\Debug\netstandard2.0\ShopDienThoai.Domain.AssemblyInfo.cs

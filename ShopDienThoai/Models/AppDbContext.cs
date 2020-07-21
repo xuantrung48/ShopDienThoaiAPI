@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.OrderModel;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.Models.UserModel;
+using ShopDienThoai.Models.OrderModel;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.UserModel;
 
-namespace TheGioiDienThoai.Models
+namespace ShopDienThoai.Models
 {
     public class AppDbContext : IdentityDbContext<User>
     {

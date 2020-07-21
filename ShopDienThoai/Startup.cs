@@ -10,12 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TheGioiDienThoai.Models;
-using TheGioiDienThoai.Models.OrderModel;
-using TheGioiDienThoai.Models.ProductModel;
-using TheGioiDienThoai.Models.UserModel;
+using ShopDienThoai.Models;
+using ShopDienThoai.Models.OrderModel;
+using ShopDienThoai.Models.ProductModel;
+using ShopDienThoai.Models.UserModel;
 
-namespace TheGioiDienThoai
+namespace ShopDienThoai
 {
     public class Startup
     {

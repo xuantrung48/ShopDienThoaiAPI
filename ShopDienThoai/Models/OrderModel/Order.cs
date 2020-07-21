@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using TheGioiDienThoai.Models.UserModel;
+using ShopDienThoai.Models.UserModel;
 
-namespace TheGioiDienThoai.Models.OrderModel
+namespace ShopDienThoai.Models.OrderModel
 {
     public class Order
     {
