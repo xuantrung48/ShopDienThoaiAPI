@@ -1,8 +1,5 @@
-﻿using System;
+﻿using ShopDienThoai.ViewModels.Product;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ShopDienThoai.ViewModels.Product;
 
 namespace ShopDienThoai.Models.ProductModel
 {

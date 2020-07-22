@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopDienThoai.Models;
 using ShopDienThoai.Models.OrderModel;
-using ShopDienThoai.Models.ProductModel;
-using ShopDienThoai.Models.UserModel;
 using ShopDienThoai.ViewModels.Order;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopDienThoai.Controllers
 {

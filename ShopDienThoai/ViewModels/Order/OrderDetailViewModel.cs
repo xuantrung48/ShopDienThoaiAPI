@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ShopDienThoai.Models.OrderModel;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using ShopDienThoai.Models.OrderModel;
 
 namespace ShopDienThoai.ViewModels.Order
 {

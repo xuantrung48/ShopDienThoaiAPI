@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using ShopDienThoai.ViewModels.Product;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using ShopDienThoai.ViewModels.Product;
 
 namespace ShopDienThoai.Models.ProductModel
 {

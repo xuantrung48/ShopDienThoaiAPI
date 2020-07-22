@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qz8ySOho3RrM9cQtZ9WkzVxl6YuhS2eIMZZYJAw+7ZEkZvC3CHxKA43EXzjIUEcmONo8uT/yFr7IWF6bZ3toyw==",
+  "dgSpecHash": "hoccA7xMYEBUI74YxsICuSoaxCQsJD3N5qqlKp3E3tRuKx3ZpA/ewTt3zK3DwWYlkQPMKfAAzgf5+77XCwxbcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Web\\ShopDienThoai.Web.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,7 @@
     "C:\\Users\\Nhung\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\3.1.3\\microsoft.visualstudio.web.codegenerators.mvc.3.1.3.nupkg.sha512",
     "C:\\Users\\Nhung\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Nhung\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
