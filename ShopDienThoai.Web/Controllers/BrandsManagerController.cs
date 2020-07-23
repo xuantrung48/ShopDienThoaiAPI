@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
 using ShopDienThoai.Web.Ultilities;
 using System.Collections.Generic;
@@ -31,7 +30,14 @@ namespace ShopDienThoai.Web.Controllers
         }
         public JsonResult Save([FromBody] Brand model)
         {
-            ActionBrandResult result = ApiHelper<ActionBrandResult>.HttpPostAsync($"{Helper.ApiUrl}api/brands/save", model);
+            ActionBrandResult result;
+            if (model.Name == "")
+                result = new ActionBrandResult()
+                {
+                    Message = "Nhập vào tên thương hiệu!"
+                };
+            else
+                result = ApiHelper<ActionBrandResult>.HttpPostAsync($"{Helper.ApiUrl}api/brands/save", model);
             return Json(new { result });
         }
     }

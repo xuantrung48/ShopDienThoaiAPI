@@ -1,11 +1,9 @@
 ﻿using Dapper;
 using ShopDienThoai.DAL.Interface;
-using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ShopDienThoai.DAL

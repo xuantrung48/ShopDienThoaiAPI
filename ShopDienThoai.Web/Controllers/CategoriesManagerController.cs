@@ -30,7 +30,14 @@ namespace ShopDienThoai.Web.Controllers
         }
         public JsonResult Save([FromBody] Category model)
         {
-            ActionCategoryResult result = ApiHelper<ActionCategoryResult>.HttpPostAsync($"{Helper.ApiUrl}api/categories/save", model);
+            ActionCategoryResult result;
+            if (model.Name == "")
+                result = new ActionCategoryResult()
+                {
+                    Message = "Nhập vào tên danh mục!"
+                };
+            else
+                result = ApiHelper<ActionCategoryResult>.HttpPostAsync($"{Helper.ApiUrl}api/categories/save", model);
             return Json(new { result });
         }
     }

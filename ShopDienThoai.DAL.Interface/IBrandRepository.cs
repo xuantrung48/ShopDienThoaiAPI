@@ -1,5 +1,4 @@
-﻿using ShopDienThoai.Domain.Request;
-using ShopDienThoai.Domain.Response;
+﻿using ShopDienThoai.Domain.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

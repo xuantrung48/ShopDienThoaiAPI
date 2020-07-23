@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hsSaizE0rSq+C6gKjtqHFOqxO13YAX7BQmA0OcNHVSnEC9aW3n5Z60aPuoOkpyHqAFitbu4b1MeV9FasIgLfcw==",
+  "dgSpecHash": "flpkrZUbV/b+eR2nnOtQOHPyx+zGWe9LJvQsVDmqq1vE9CMwKBB+JIQLG7TmyUn/kO+hwkRvYjISgMjfbCdjVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL\\ShopDienThoai.DAL.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\Nhung\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\Nhung\\.nuget\\packages\\system.data.sqlclient\\4.8.1\\system.data.sqlclient.4.8.1.nupkg.sha512",
     "C:\\Users\\Nhung\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
     "C:\\Users\\Nhung\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

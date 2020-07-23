@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ZF8uWsOmTGMC8RPFYn7/mnSjIDd1l3cLKOncv9NNYGk1DR75XJZmsHyalPXWycXURq/BsKSo97H/ZoqRhdYzYQ==",
+  "dgSpecHash": "FUeLGgP9LUEE54WZMLj/iL7FNbisD/bPdkC4po5OgfzWoql+Vkfaavok3aTzzPsfSVeGKR0Hw4XR4a55jlGBKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL\\ShopDienThoai.BAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nhung\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Nhung\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Nhung\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Nhung\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
