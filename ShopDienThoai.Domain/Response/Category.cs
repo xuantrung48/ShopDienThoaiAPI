@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShopDienThoai.Domain.Response
+﻿namespace ShopDienThoai.Domain.Response
 {
     public class Category
     {

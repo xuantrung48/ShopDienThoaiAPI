@@ -1,74 +1,52 @@
 ﻿using Dapper;
 using ShopDienThoai.DAL.Interface;
-using ShopDienThoai.Domain;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.DAL
 {
     public class BrandRepository : BaseRepository, IBrandRepository
     {
-        public Brand Get(int id)
+        public async Task<Brand> Get(int id)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@BrandId", id);
-            Brand brand = SqlMapper.Query<Brand>(conn, "GetBrand", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            return brand;
+            return await SqlMapper.QueryFirstOrDefaultAsync<Brand>(cnn: conn, sql: "GetBrand", param: parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public IList<Brand> Get()
+        public async Task<IEnumerable<Brand>> Get()
         {
-            IList<Brand> brands = SqlMapper.Query<Brand>(conn, "GetBrands", commandType: CommandType.StoredProcedure).ToList();
-            return brands;
+            return await SqlMapper.QueryAsync<Brand>(conn, "GetBrands", commandType: CommandType.StoredProcedure);
         }
 
-        public bool RemoveBrand(int id)
+        public async Task<ActionBrandResult> Delete(int id)
         {
-            try
-            {
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@BrandId", id);
-                bool removeSuccess = SqlMapper.ExecuteScalar<bool>(conn, "RemoveBrand", parameters, commandType: CommandType.StoredProcedure);
-                return removeSuccess;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@BrandId", id);
+            return await SqlMapper.QueryFirstOrDefaultAsync<ActionBrandResult>(cnn: conn, sql: "DeleteBrand", param: parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public int EditBrand(Brand brand)
+        public async Task<ActionBrandResult> Save(Brand brand)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BrandId", brand.BrandId);
                 parameters.Add("@Name", brand.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "EditBrand", parameters, commandType: CommandType.StoredProcedure);
-                return id;
+                return await SqlMapper.QueryFirstOrDefaultAsync<ActionBrandResult>(cnn: conn, sql: "SaveBrand", param: parameters, commandType: CommandType.StoredProcedure);
             }
-            catch(Exception e)
+            catch (Exception)
             {
-                throw e;
-            }
-        }
-
-        public int CreateBrand(BrandViewModel model)
-        {
-            try
-            {
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Name", model.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "CreateBrand", parameters, commandType: CommandType.StoredProcedure);
-                return id;
-            }
-            catch (Exception e)
-            {
-                throw e;
+                return new ActionBrandResult()
+                {
+                    BrandId = 0,
+                    Message = "Có lỗi xảy ra, xin thử lại!"
+                };
             }
         }
     }

@@ -1,75 +1,53 @@
 ﻿using Dapper;
 using ShopDienThoai.DAL.Interface;
-using ShopDienThoai.Domain;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.DAL
 {
     public class CategoryRepository : BaseRepository, ICategoryRepository
     {
 
-        public Category Get(int id)
+        public async Task<Category> Get(int id)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@CategoryId", id);
-            Category category = SqlMapper.Query<Category>(conn, "GetCategory", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
-            return category;
+            return await SqlMapper.QueryFirstOrDefaultAsync<Category>(cnn: conn, sql: "GetCategory", param: parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public IList<Category> Get()
+        public async Task<IEnumerable<Category>> Get()
         {
-            IList<Category> categories = SqlMapper.Query<Category>(conn, "GetCategories", commandType: CommandType.StoredProcedure).ToList();
-            return categories;
+            return await SqlMapper.QueryAsync<Category>(cnn: conn, sql: "GetCategories", commandType: CommandType.StoredProcedure);
         }
 
-        public bool RemoveCategory(int id)
+        public async Task<ActionCategoryResult> Delete(int id)
         {
-            try
-            {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CategoryId", id);
-                bool removeSuccess = SqlMapper.ExecuteScalar<bool>(conn, "RemoveCategory", parameters, commandType: CommandType.StoredProcedure);
-                return removeSuccess;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+                return await SqlMapper.QueryFirstOrDefaultAsync<ActionCategoryResult>(cnn: conn, sql: "DeleteCategory", param: parameters, commandType: CommandType.StoredProcedure);
         }
 
-        public int EditCategory(Category category)
+        public async Task<ActionCategoryResult> Save(Category category)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CategoryId", category.CategoryId);
                 parameters.Add("@Name", category.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "EditCategory", parameters, commandType: CommandType.StoredProcedure);
-                return id;
+                return await SqlMapper.QueryFirstOrDefaultAsync<ActionCategoryResult>(cnn: conn, sql: "SaveCategory", param: parameters, commandType: CommandType.StoredProcedure);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                throw e;
-            }
-        }
-
-        public int CreateCategory(CategoryViewModel model)
-        {
-            try
-            {
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Name", model.Name);
-                int id = SqlMapper.ExecuteScalar<int>(conn, "CreateCategory", parameters, commandType: CommandType.StoredProcedure);
-                return id;
-            }
-            catch (Exception e)
-            {
-                throw e;
+                return new ActionCategoryResult()
+                {
+                    CategoryId = 0,
+                    Message = "Có lỗi xảy ra, xin thử lại!"
+                };
             }
         }
     }

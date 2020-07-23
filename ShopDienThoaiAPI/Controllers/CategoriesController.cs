@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ShopDienThoai.BAL;
+﻿using Microsoft.AspNetCore.Mvc;
 using ShopDienThoai.BAL.Interface;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.API.Controllers
 {
@@ -22,33 +18,27 @@ namespace ShopDienThoai.API.Controllers
 
         [HttpGet]
         [Route("api/categories/get")]
-        public IEnumerable<Category> Get()
+        public async Task<IEnumerable<Category>> Get()
         {
-            return categoryService.Get();
+            return await categoryService.Get();
         }
         [HttpGet]
         [Route("api/categories/get/{id}")]
-        public Category Get(int id)
+        public async Task<Category> Get(int id)
         {
-            return categoryService.Get(id);
-        }
-        [HttpPut]
-        [Route("api/categories/editcategory")]
-        public int EditCategory(Category category)
-        {
-            return categoryService.EditCategory(category);
+            return await categoryService.Get(id);
         }
         [HttpPost]
-        [Route("api/categories/createcategory")]
-        public int CreateCategory(CategoryViewModel model)
+        [Route("api/categories/save")]
+        public async Task<ActionCategoryResult> Save(Category category)
         {
-            return categoryService.CreateCategory(model);
+            return await categoryService.Save(category);
         }
         [HttpDelete]
-        [Route("api/categories/removecategory/{id}")]
-        public bool RemoveCategory(int id)
+        [Route("api/categories/delete/{id}")]
+        public async Task<ActionCategoryResult> Remove(int id)
         {
-            return categoryService.RemoveCategory(id);
+            return await categoryService.Delete(id);
         }
     }
 }

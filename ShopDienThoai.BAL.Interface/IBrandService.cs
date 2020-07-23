@@ -1,17 +1,15 @@
-﻿using ShopDienThoai.Domain;
-using ShopDienThoai.Domain.Request;
+﻿using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.BAL.Interface
 {
     public interface IBrandService
     {
-        IList<Brand> Get();
-        Brand Get(int id);
-        int EditBrand(Brand brand);
-        int CreateBrand(BrandViewModel model);
-        bool RemoveBrand(int id);
+        Task<IEnumerable<Brand>> Get();
+        Task<Brand> Get(int id);
+        Task<ActionBrandResult> Save(Brand brand);
+        Task<ActionBrandResult> Delete(int id);
     }
 }

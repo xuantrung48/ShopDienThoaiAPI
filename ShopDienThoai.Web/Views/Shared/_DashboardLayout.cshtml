@@ -110,7 +110,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    @*<h2 class="text-center my-4">@ViewBag.Title</h2>*@
+                    <h2 class="text-center my-4">@ViewBag.Title</h2>
                     @RenderBody()
                 </div>
             </main>
@@ -133,16 +133,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
     </environment>
-    <script>
-        $(document).ready(function () {
-            init();
-        });
-    </script>
-    <script src="~/js/dashboard.js"></script>
     @RenderSection("Scripts", false)
     @RenderSection("ValidateScript", false)
     @RenderSection("lightboxjs", false)
     @RenderSection("datatablejs", false)
     @RenderSection("tinyMCE", false)
+    @RenderSection("managerScript", false)
 </body>
 </html>

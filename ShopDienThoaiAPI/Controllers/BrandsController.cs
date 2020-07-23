@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ShopDienThoai.BAL;
+﻿using Microsoft.AspNetCore.Mvc;
 using ShopDienThoai.BAL.Interface;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.API.Controllers
 {
@@ -22,33 +18,27 @@ namespace ShopDienThoai.API.Controllers
 
         [HttpGet]
         [Route("api/brands/get")]
-        public IEnumerable<Brand> Get()
+        public async Task<IEnumerable<Brand>> Get()
         {
-            return brandService.Get();
+            return await brandService.Get();
         }
         [HttpGet]
         [Route("api/brands/get/{id}")]
-        public Brand Get(int id)
+        public async Task<Brand> Get(int id)
         {
-            return brandService.Get(id);
-        }
-        [HttpPut]
-        [Route("api/brands/editbrand")]
-        public int EditBrand(Brand brand)
-        {
-            return brandService.EditBrand(brand);
+            return await brandService.Get(id);
         }
         [HttpPost]
-        [Route("api/brands/createbrand")]
-        public int CreateBrand(BrandViewModel model)
+        [Route("api/brands/save")]
+        public async Task<ActionBrandResult> Save(Brand brand)
         {
-            return brandService.CreateBrand(model);
+            return await brandService.Save(brand);
         }
         [HttpDelete]
-        [Route("api/brands/removebrand/{id}")]
-        public bool RemoveBrand(int id)
+        [Route("api/brands/delete/{id}")]
+        public async Task<ActionBrandResult> Remove(int id)
         {
-            return brandService.RemoveBrand(id);
+            return await brandService.Delete(id);
         }
     }
 }

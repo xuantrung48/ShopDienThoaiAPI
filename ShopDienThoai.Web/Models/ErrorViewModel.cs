@@ -1,5 +1,3 @@
-using System;
-
 namespace ShopDienThoai.Web.Models
 {
     public class ErrorViewModel

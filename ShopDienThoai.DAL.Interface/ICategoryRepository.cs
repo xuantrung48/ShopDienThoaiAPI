@@ -1,18 +1,14 @@
-﻿using System;
+﻿using ShopDienThoai.Domain.Response;
 using System.Collections.Generic;
-using System.Text;
-using ShopDienThoai.Domain;
-using ShopDienThoai.Domain.Response;
-using ShopDienThoai.Domain.Request;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.DAL.Interface
 {
     public interface ICategoryRepository
     {
-        IList<Category> Get();
-        Category Get(int id);
-        int EditCategory(Category category);
-        int CreateCategory(CategoryViewModel model);
-        bool RemoveCategory(int id);
+        Task<IEnumerable<Category>> Get();
+        Task<Category> Get(int id);
+        Task<ActionCategoryResult> Save(Category category);
+        Task<ActionCategoryResult> Delete(int id);
     }
 }

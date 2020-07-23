@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShopDienThoai.Domain.Request
+﻿namespace ShopDienThoai.Domain.Request
 {
     public class CategoryViewModel
     {

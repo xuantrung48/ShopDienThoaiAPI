@@ -2,8 +2,8 @@
 using ShopDienThoai.DAL.Interface;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.BAL
 {
@@ -14,28 +14,24 @@ namespace ShopDienThoai.BAL
         {
             this.categoryRepository = categoryRepository;
         }
-        public Category Get(int id)
+        public async Task<Category> Get(int id)
         {
-            return categoryRepository.Get(id);
+            return await categoryRepository.Get(id);
         }
 
-        public IList<Category> Get()
+        public async Task<IEnumerable<Category>> Get()
         {
-            return categoryRepository.Get();
+            return await categoryRepository.Get();
         }
 
-        public bool RemoveCategory(int id)
+        public async Task<ActionCategoryResult> Delete(int id)
         {
-            return categoryRepository.RemoveCategory(id);
+            return await categoryRepository.Delete(id);
         }
 
-        public int EditCategory(Category category)
+        public async Task<ActionCategoryResult> Save(Category category)
         {
-            return categoryRepository.EditCategory(category);
-        }
-        public int CreateCategory(CategoryViewModel model)
-        {
-            return categoryRepository.CreateCategory(model);
+            return await categoryRepository.Save(category);
         }
     }
 }

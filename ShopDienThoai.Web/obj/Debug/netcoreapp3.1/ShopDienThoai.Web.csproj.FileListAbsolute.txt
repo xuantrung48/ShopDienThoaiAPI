@@ -110,3 +110,9 @@ C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\bin\Debug\netcoreapp3.1\z
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\Razor\Views\BrandsManager\Index.cshtml.g.cs
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\Razor\Views\BrandsManager\_ViewStart.cshtml.g.cs
 C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\bin\Debug\netcoreapp3.1\ShopDienThoai.Domain.dll
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\bin\Debug\netcoreapp3.1\ShopDienThoai.Domain.pdb
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\ShopDienThoai.Web.csproj.CoreCompileInputs.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\ShopDienThoai.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\Razor\Views\CategoriesManager\Index.cshtml.g.cs
+C:\Users\Nhung\Desktop\ShopDienThoai\ShopDienThoai.Web\obj\Debug\netcoreapp3.1\Razor\Views\CategoriesManager\_ViewStart.cshtml.g.cs

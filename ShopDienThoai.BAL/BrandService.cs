@@ -2,8 +2,8 @@
 using ShopDienThoai.DAL.Interface;
 using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShopDienThoai.BAL
 {
@@ -14,28 +14,24 @@ namespace ShopDienThoai.BAL
         {
             this.brandRepository = brandRepository;
         }
-        public Brand Get(int id)
+        public async Task<Brand> Get(int id)
         {
-            return brandRepository.Get(id);
+            return await brandRepository.Get(id);
         }
 
-        public IList<Brand> Get()
+        public async Task<IEnumerable<Brand>> Get()
         {
-            return brandRepository.Get();
+            return await brandRepository.Get();
         }
 
-        public bool RemoveBrand(int id)
+        public async Task<ActionBrandResult> Delete(int id)
         {
-            return brandRepository.RemoveBrand(id);
+            return await brandRepository.Delete(id);
         }
-
-        public int EditBrand(Brand brand)
+        
+        public async Task<ActionBrandResult> Save(Brand brand)
         {
-            return brandRepository.EditBrand(brand);
-        }
-        public int CreateBrand(BrandViewModel model)
-        {
-            return brandRepository.CreateBrand(model);
+            return await brandRepository.Save(brand);
         }
     }
 }
