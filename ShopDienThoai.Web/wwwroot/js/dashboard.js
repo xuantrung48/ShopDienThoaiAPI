@@ -118,7 +118,7 @@ category.drawTable = function () {
         dataType: "json",
         success: function (data) {
             $('#categoriesTable tbody').empty();
-            $.each(data.categories, function (i, v) {
+            $.each(data.result, function (i, v) {
                 $('#categoriesTable tbody').append(
                     `<tr>
                         <td>${v.categoryId}</td>
@@ -144,23 +144,23 @@ category.get = function (id) {
         dataType: "json",
         success: function (data) {
             $('.modal-title').text("Đổi tên danh mục");
-            $('#CategoryName').val(data.category.name);
-            $('#CategoryId').val(data.category.categoryId);
+            $('#CategoryName').val(data.result.name);
+            $('#CategoryId').val(data.result.categoryId);
             $('#addEditCategory').modal('show');
         }
     });
 };
 
 category.save = function () {
-    var category = {};
-    category.Name = $('#CategoryName').val();
-    category.CategoryId = parseInt($('#CategoryId').val());
+    var categoryObj = {};
+    categoryObj.Name = $('#CategoryName').val();
+    categoryObj.CategoryId = parseInt($('#CategoryId').val());
     $.ajax({
         url: `/CategoriesManager/Save/`,
         method: "POST",
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify(category),
+        data: JSON.stringify(categoryObj),
         success: function (data) {
             $('#addEditCategory').modal('hide');
             bootbox.alert(data.result.message);

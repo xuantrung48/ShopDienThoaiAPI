@@ -13,14 +13,14 @@ namespace ShopDienThoai.Web.Controllers
         }
         public JsonResult Gets()
         {
-            List<Category> categories = ApiHelper<List<Category>>.HttpGetAsync($"{Helper.ApiUrl}api/categories/get");
-            return Json(new { categories });
+            List<Category> result = ApiHelper<List<Category>>.HttpGetAsync($"{Helper.ApiUrl}api/categories/get");
+            return Json(new { result });
         }
 
         public JsonResult Get(int id)
         {
-            Category category = ApiHelper<Category>.HttpGetAsync($"{Helper.ApiUrl}api/categories/get/{id}");
-            return Json(new { category });
+            Category result = ApiHelper<Category>.HttpGetAsync($"{Helper.ApiUrl}api/categories/get/{id}");
+            return Json(new { result });
         }
 
         public JsonResult Delete(int id)

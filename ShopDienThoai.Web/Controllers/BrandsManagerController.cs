@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShopDienThoai.Domain.Request;
 using ShopDienThoai.Domain.Response;
 using ShopDienThoai.Web.Ultilities;
 using System.Collections.Generic;
@@ -13,14 +14,14 @@ namespace ShopDienThoai.Web.Controllers
         }
         public JsonResult Gets()
         {
-            List<Brand> brands = ApiHelper<List<Brand>>.HttpGetAsync($"{Helper.ApiUrl}api/brands/get");
-            return Json(new { brands });
+            List<Brand> result = ApiHelper<List<Brand>>.HttpGetAsync($"{Helper.ApiUrl}api/brands/get");
+            return Json(new { result });
         }
 
         public JsonResult Get(int id)
         {
-            Brand brand = ApiHelper<Brand>.HttpGetAsync($"{Helper.ApiUrl}api/brands/get/{id}");
-            return Json(new { brand });
+            Brand result = ApiHelper<Brand>.HttpGetAsync($"{Helper.ApiUrl}api/brands/get/{id}");
+            return Json(new { result });
         }
 
         public JsonResult Delete(int id)

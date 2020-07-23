@@ -14,7 +14,7 @@ brand.drawTable = function () {
         dataType: "json",
         success: function (data) {
             $('#brandsTable tbody').empty();
-            $.each(data.brands, function (i, v) {
+            $.each(data.result, function (i, v) {
                 $('#brandsTable tbody').append(
                     `<tr>
                         <td>${v.brandId}</td>
@@ -40,23 +40,23 @@ brand.get = function (id) {
         dataType: "json",
         success: function (data) {
             $('.modal-title').text("Đổi tên thương hiệu");
-            $('#BrandName').val(data.brand.name);
-            $('#BrandId').val(data.brand.brandId);
+            $('#BrandName').val(data.result.name);
+            $('#BrandId').val(data.result.brandId);
             $('#addEditBrand').modal('show');
         }
     });
 };
 
 brand.save = function () {
-    var brand = {};
-    brand.Name = $('#BrandName').val();
-    brand.BrandId = parseInt($('#BrandId').val());
+    var brandObj = {};
+    brandObj.Name = $('#BrandName').val();
+    brandObj.BrandId = parseInt($('#BrandId').val());
     $.ajax({
         url: `/BrandsManager/Save/`,
         method: "POST",
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify(brand),
+        data: JSON.stringify(brandObj),
         success: function (data) {
             $('#addEditBrand').modal('hide');
             bootbox.alert(data.result.message);
