@@ -218,56 +218,41 @@ product.init = function () {
 };
 
 product.drawTable = function () {
-    var brands;
-    $.ajax({
-        url: `/BrandsManager/Gets`,
-        method: "GET",
-        dataType: "json",
-        success: function (data) {
-            brands = data.result;
-        }
-    });
-
     $.ajax({
         url: "/ProductsManager/Gets",
         method: "GET",
         dataType: "json",
         success: function (data) {
             $('#productsTable tbody').empty();
-            $.each(data.result, function (i, p) {
-                $.each(brands, function (j, b) {
-                    if (b.brandId == p.brandId) {
-                        console.log(b.brandId);
-                        console.log(b.name);
-                        $('#productsTable tbody').append(
-                            `<tr>
-                                <td>${p.name}</td>
-                                <td></td>
-                                <td>${b.name}</td>
-                                <td>
-                                    <ul>
-                                        <li>Màn hình: ${p.screen}</li>
-                                        <li>OS: ${p.os}</li>
-                                        <li>CPU: ${p.cpu}</li>
-                                        <li>Camera trước: ${p.frontcamera}</li>
-                                        <li>Camera sau: ${p.rearcamera}</li>
-                                        <li>Ram: ${p.ram}</li>
-                                        <li>Rom: ${p.rom}</li>
-                                    </ul>
-                                </td>
-                                <td>${digitGrouping(p.price)} ₫</td>
-                                <td>${p.remain}</td>
-                                <td>
-                                    <a href="javascripts:;" class="btn btn-primary"
-                                               onclick="product.get(${p.productId})"><i class="fas fa-edit"></i></a> 
-                                    <a href="javascripts:;" class="btn btn-danger"
-                                                onclick="product.delete('${p.productId}', '${p.name}')"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>`
-                        );
-                        return false;
-                    };
-                })
+            $.each(data.result.products, function (_i, p) {
+                let imagesHtml = "";
+                $.each(p.images, function (_j, i) {
+                    imagesHtml += '<a href="http://localhost:49816/images/products/' + i.imageName + '" data-toggle="lightbox" data-gallery="' + p.productId + '" data-title="' + p.name + '"><img src="http://localhost:49816/images/products/' + i.imageName + '" height="50" class="mx-1 my-1"></a>'
+                });
+                $('#productsTable tbody').append(
+                    `<tr>
+                        <td>${p.name}</td>
+                        <td>${imagesHtml}</td>
+                        <td>${p.brand.name}</td>
+                        <td>
+                            <ul>
+                                <li>Màn hình: ${p.screen}</li>
+                                <li>OS: ${p.os}</li>
+                                <li>CPU: ${p.cpu}</li>
+                                <li>Camera trước: ${p.frontcamera}</li>
+                                <li>Camera sau: ${p.rearcamera}</li>
+                                <li>Ram: ${p.ram}</li>
+                                <li>Rom: ${p.rom}</li>
+                            </ul>
+                        </td>
+                        <td>${digitGrouping(p.price)} ₫</td>
+                        <td>${p.remain}</td>
+                        <td>
+                            <a href="javascripts:;" class="btn btn-primary" onclick="product.get(${p.productId})"><i class="fas fa-edit"></i></a> 
+                            <a href="javascripts:;" class="btn btn-danger" onclick="product.delete('${p.productId}', '${p.name}')"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>`
+                );
             });
             $('#productsTable').DataTable();
         }

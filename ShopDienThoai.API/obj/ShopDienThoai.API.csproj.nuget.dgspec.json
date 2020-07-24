@@ -30,14 +30,20 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL.Interface\\ShopDienThoai.BAL.Interface.csproj": {
+                "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL.Interface\\ShopDienThoai.BAL.Interface.csproj"
+              },
               "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL\\ShopDienThoai.BAL.csproj": {
                 "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.BAL\\ShopDienThoai.BAL.csproj"
+              },
+              "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL.Interface\\ShopDienThoai.DAL.Interface.csproj": {
+                "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL.Interface\\ShopDienThoai.DAL.Interface.csproj"
               },
               "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL\\ShopDienThoai.DAL.csproj": {
                 "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.DAL\\ShopDienThoai.DAL.csproj"
               },
-              "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\ShopDienThoai.csproj": {
-                "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\ShopDienThoai.csproj"
+              "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Domain\\ShopDienThoai.Domain.csproj": {
+                "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai.Domain\\ShopDienThoai.Domain.csproj"
               }
             }
           }
@@ -50,6 +56,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -373,6 +389,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
@@ -385,88 +405,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\ShopDienThoai.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\ShopDienThoai.csproj",
-        "projectName": "ShopDienThoai",
-        "projectPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\ShopDienThoai.csproj",
-        "packagesPath": "C:\\Users\\Nhung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nhung\\Desktop\\ShopDienThoai\\ShopDienThoai\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Nhung\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }

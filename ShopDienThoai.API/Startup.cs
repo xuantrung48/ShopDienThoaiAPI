@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using ShopDienThoai.BAL;
 using ShopDienThoai.BAL.Interface;
 using ShopDienThoai.DAL;
@@ -29,8 +23,17 @@ namespace ShopDienThoai.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddControllers();
+            services.AddSwaggerGen();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IImageService, ImageService>();
+            services.AddTransient<IImageRepository, ImageRepository>();
+            services.AddTransient<IProductsListService, ProductsListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,10 +47,17 @@ namespace ShopDienThoai.API
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop Dien Thoai APIs");
+                c.RoutePrefix = string.Empty;
             });
         }
     }

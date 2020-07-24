@@ -13,7 +13,7 @@ namespace ShopDienThoai.Web.Controllers
         }
         public JsonResult Gets()
         {
-            List<Product> result = ApiHelper<List<Product>>.HttpGetAsync($"{Helper.ApiUrl}api/products/get");
+            ProductsList result = ApiHelper<ProductsList>.HttpGetAsync($"{Helper.ApiUrl}api/productslist/get");
             return Json(new { result });
         }
 
