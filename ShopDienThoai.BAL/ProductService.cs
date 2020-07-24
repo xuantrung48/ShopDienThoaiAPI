@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopDienThoai.BAL
 {
-    class ProductService : IProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository productRepository;
         public ProductService(IProductRepository productRepository)

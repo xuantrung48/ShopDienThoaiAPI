@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopDienThoai.DAL
 {
-    class ProductRepository : BaseRepository, IProductRepository
+    public class ProductRepository : BaseRepository, IProductRepository
     {
 
         public async Task<Product> Get(int id)
