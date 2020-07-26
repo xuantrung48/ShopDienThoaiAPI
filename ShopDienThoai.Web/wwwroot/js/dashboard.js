@@ -219,6 +219,30 @@ product.init = function () {
 
 product.drawTable = function () {
     $.ajax({
+        url: `/BrandsManager/Gets`,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            $.each(data.result, function (i, v) {
+                $('#ProductBrandId').append(
+                    `<option value="${v.brandId}">${v.name}</option>`
+                );
+            })
+        }
+    });
+    $.ajax({
+        url: `/CategoriesManager/Gets`,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            $.each(data.result, function (i, v) {
+                $('#ProductCategoryId').append(
+                    `<option value="${v.categoryId}">${v.name}</option>`
+                );
+            })
+        }
+    });
+    $.ajax({
         url: "/ProductsManager/Gets",
         method: "GET",
         dataType: "json",
@@ -227,7 +251,7 @@ product.drawTable = function () {
             $.each(data.result.products, function (_i, p) {
                 let imagesHtml = "";
                 $.each(p.images, function (_j, i) {
-                    imagesHtml += '<a href="http://localhost:49816/images/products/' + i.imageName + '" data-toggle="lightbox" data-gallery="' + p.productId + '" data-title="' + p.name + '"><img src="http://localhost:49816/images/products/' + i.imageName + '" height="50" class="mx-1 my-1"></a>'
+                    imagesHtml += '<a href="http://localhost:49816/images/products/' + i.imageData + '" data-toggle="lightbox" data-gallery="' + p.productId + '" data-title="' + p.name + '"><img src="http://localhost:49816/images/products/' + i.imageData + '" height="50" class="mx-1 my-1"></a>'
                 });
                 $('#productsTable tbody').append(
                     `<tr>
@@ -275,8 +299,20 @@ product.get = function (id) {
 
 product.save = function () {
     var productObj = {};
-    productObj.Name = $('#ProductName').val();
     productObj.ProductId = parseInt($('#ProductId').val());
+    productObj.Name = $('#ProductName').val();
+    productObj.Price = $('#ProductPrice').val();
+    productObj.BrandId = $('#ProductBrandId').val();
+    productObj.CategoryId = $('#ProductCategoryId').val();
+    productObj.Remain = $('#ProductRemain').val();
+    productObj.Description = $('#ProductDescription').val();
+    productObj.Screen = $('#ProductScreen').val();
+    productObj.CPU = $('#ProductCPU').val();
+    productObj.OS = $('#ProductOS').val();
+    productObj.RearCamera = $('#ProductRearCamera').val();
+    productObj.FrontCamera = $('#ProductFrontCamera').val();
+    productObj.Ram = $('#ProductRam').val();
+    productObj.Rom = $('#ProductRom').val();
     $.ajax({
         url: `/ProductsManager/Save/`,
         method: "POST",
@@ -326,6 +362,6 @@ product.reset = function () {
 
 AddEditProduct = function () {
     product.reset();
-    $('.modal-title').text("Thêm mới thương hiệu");
+    $('.modal-title').text("Thêm mới sản phẩm");
     $('#addEditProduct').modal('show');
 };

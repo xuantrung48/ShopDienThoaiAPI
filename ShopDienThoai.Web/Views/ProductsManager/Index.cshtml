@@ -25,7 +25,7 @@
 
 <!-- Modal -->
 <div id="addEditProduct" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <form id="addEditProductForm">
             <!-- Modal content-->
             <div class="modal-content">
@@ -33,21 +33,111 @@
                     <h4 class="modal-title"></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <input hidden id="ProductId" name="ProductId">
-                <div class="modal-body">
-                    <input type="file" onchange="encodeImageFileAsURL(this)" />
+                <div class="modal-body text-right">
+                    <input hidden id="ProductId" name="ProductId">
                     <div class="row form-group">
-                        <div class="col-3">
-                            <label>Tên danh mục:</label>
+                        <div class="col-2">
+                            <label>Tên sản phẩm:</label>
                         </div>
-                        <div class="col-9">
+                        <div class="col-10">
                             <input type="text" id="ProductName" name="ProductName" class="form-control" data-rule-required="true">
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="javascript:;" class="btn btn-primary" onclick="product.save()">Lưu</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Giá (₫):</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" id="ProductPrice" name="ProductPrice" class="form-control" data-rule-required="true">
+                        </div>
+                        <div class="col-2">
+                            <label>Số lượng (cái):</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" id="ProductRemain" name="ProductRemain" class="form-control" data-rule-required="true">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Thương hiệu:</label>
+                        </div>
+                        <div class="col-4">
+                            <select id="ProductBrandId" name="ProductBrandId" class="form-control" data-rule-required="true">
+                                <option value="">Chọn thương hiệu</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <label>Danh mục:</label>
+                        </div>
+                        <div class="col-4">
+                            <select id="ProductCategoryId" name="ProductCategoryId" class="form-control" data-rule-required="true">
+                                <option value="">Chọn danh mục</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>CPU:</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="ProductCPU" name="ProductCPU" class="form-control" data-rule-required="true">
+                        </div>
+                        <div class="col-2">
+                            <label>Màn hình:</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="ProductScreen" name="ProductScreen" class="form-control" data-rule-required="true">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Hệ điều hành:</label>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" id="ProductOS" name="ProductOS" class="form-control" data-rule-required="true">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Camera sau:</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="ProductRearCamera" name="ProductRearCamera" class="form-control" data-rule-required="true">
+                        </div>
+                        <div class="col-2">
+                            <label>Camera trước:</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" id="ProductFrontCamera" name="ProductFrontCamera" class="form-control" data-rule-required="true">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Ram (GB):</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" id="ProductRam" name="ProductRam" class="form-control" data-rule-required="true">
+                        </div>
+                        <div class="col-2">
+                            <label>Rom (GB):</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="number" id="ProductRom" name="ProductRom" class="form-control" data-rule-required="true">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Bài viết mô tả:</label>
+                        </div>
+                        <div class="col-10">
+                            <textarea id="ProductDescription" name="ProductDescription" class="form-control" data-rule-required="true" placeholder="Viết bài mô tả sản phẩm" rows="55"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:;" class="btn btn-primary" onclick="product.save()">Lưu</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                    </div>
+
                 </div>
             </div>
         </form>
@@ -92,5 +182,48 @@
     </environment>
     <environment exclude="Development">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet" />
+    </environment>
+}
+
+@section tinyMCE{
+    <environment include="Development">
+        <script src="~/lib/tinymce/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                theme: 'modern',
+                plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'emoticons paste textcolor colorpicker textpattern imagetools'
+                ],
+                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                toolbar2: 'print preview media | forecolor backcolor emoticons',
+                image_advtab: true,
+                content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                    '//www.tinymce.com/css/codepen.min.css'
+                ]
+            });
+        </script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.11/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                theme: 'modern',
+                plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'emoticons paste textcolor colorpicker textpattern imagetools'
+                ],
+                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                toolbar2: 'print preview media | forecolor backcolor emoticons',
+                image_advtab: true,
+                content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                    '//www.tinymce.com/css/codepen.min.css'
+                ]
+            });
+        </script>
     </environment>
 }

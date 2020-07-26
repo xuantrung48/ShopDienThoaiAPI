@@ -6,7 +6,7 @@ namespace ShopDienThoai.Domain.Response
     {
         [Required]
         public string ImageId { get; set; }
-        public string ImageName { get; set; }
+        public string ImageData { get; set; }
         public string ProductId { get; set; }
         public Product Product { get; set; }
     }

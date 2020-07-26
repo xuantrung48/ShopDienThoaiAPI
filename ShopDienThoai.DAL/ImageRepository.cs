@@ -41,7 +41,7 @@ namespace ShopDienThoai.DAL
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@ImageId", image.ImageId);
-            parameters.Add("@Name", image.ImageName);
+            parameters.Add("@Name", image.ImageData);
             return await SqlMapper.QueryFirstOrDefaultAsync<ActionImageResult>(cnn: conn, sql: "SaveImage", param: parameters, commandType: CommandType.StoredProcedure);
         }
         catch (Exception)
