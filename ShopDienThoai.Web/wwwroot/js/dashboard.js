@@ -1,6 +1,7 @@
 ﻿var brand = {} || brand;
 var category = {} || category;
 var product = {} || product;
+var image = {} || image;
 $(document).ready(function () {
     brand.init();
     category.init();
@@ -251,7 +252,7 @@ product.drawTable = function () {
             $.each(data.result.products, function (_i, p) {
                 let imagesHtml = "";
                 $.each(p.images, function (_j, i) {
-                    imagesHtml += '<a href="http://localhost:49816/images/products/' + i.imageData + '" data-toggle="lightbox" data-gallery="' + p.productId + '" data-title="' + p.name + '"><img src="http://localhost:49816/images/products/' + i.imageData + '" height="50" class="mx-1 my-1"></a>'
+                    imagesHtml += `<a href="${i.imageData}" data-toggle="lightbox" data-gallery="${p.productId}" data-title="${p.name}"><img src="${i.imageData}" height="50" class="mx-1 my-1"></a>`
                 });
                 $('#productsTable tbody').append(
                     `<tr>
@@ -286,7 +287,6 @@ product.drawTable = function () {
 product.get = function (productId) {
     product.reset();
     tinyMCE.triggerSave();
-    var imgsNo;
     $.ajax({
         url: `/ImagesManager/GetImagesByProductId/${productId}`,
         method: "GET",
@@ -295,7 +295,8 @@ product.get = function (productId) {
             imgsNo = data.result.length;
             $.each(data.result, function (i, v) {
                 $("#imgsPreview").append(
-                    `<img src="${v.imageData}" height="100" class="mx-2 my-2">`
+                    `<img src="${v.imageData}" height="100" class="mx-2 my-2">
+                     <a class="remove-image" onclick="image.delete('${v.imageId}')" style="display: inline;">&#215;</a>`
                 );
             });
         }
@@ -309,7 +310,6 @@ product.get = function (productId) {
             $('.modal-title').text("Đổi thông tin sản phẩm");
             $('#ProductName').val(product.name);
             $('#ProductId').val(product.productId);
-            $("#imgsNo").val(imgsNo);
             $('#ProductPrice').val(product.price);
             $('#ProductBrandId').val(product.brandId);
             $('#ProductCategoryId').val(product.categoryId);
@@ -392,6 +392,7 @@ product.delete = function (id, name) {
 };
 
 product.reset = function () {
+    $(".custom-file-label").text("Choose file");
     $("#imgsPreview").empty();
     $("#imgsdata").empty();
     $('#ProductId').val('');
@@ -419,6 +420,23 @@ AddEditProduct = function () {
 readFiles = function () {
     $("#imgsPreview").empty();
     $("#imgsdata").empty();
+
+    if ($('#ProductId').val() == '0') {
+        $.ajax({
+            url: `/ImagesManager/GetImagesByProductId/${productId}`,
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                imgsNo = data.result.length;
+                $.each(data.result, function (i, v) {
+                    $("#imgsPreview").append(
+                        `<img src="${v.imageData}" height="100" class="mx-2 my-2">
+                     <a class="remove-image" onclick="image.delete('${v.imageId}')" style="display: inline;">&#215;</a>`
+                    );
+                });
+            }
+        })
+    }
     if (this.files && this.files[0]) {
         for (let i = 0; i < this.files.length; i++) {
             var FR = new FileReader();
@@ -440,3 +458,67 @@ readFiles = function () {
     }
 
 }
+
+image.reloadProductImages = function () {
+    $("#imgsPreview").empty();
+    $("#imgsdata").empty();
+    var productId = $('#ProductId').val();
+    $.ajax({
+        url: `/ImagesManager/GetImagesByProductId/${productId}`,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            $.each(data.result, function (i, v) {
+                $("#imgsPreview").append(
+                    `<img src="${v.imageData}" height="100" class="mx-2 my-2">
+                     <a class="remove-image" onclick="image.delete('${v.imageId}')" style="display: inline;">&#215;</a>`
+                );
+            });
+        }
+    })
+}
+
+image.delete = function (imageId) {
+    bootbox.confirm({
+        title: "Xoá ảnh",
+        message: "Bạn có thực sự muốn xoá ảnh này?",
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Huỷ'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Xác nhận'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                $.ajax({
+                    url: `/ImagesManager/Delete/${imageId}`,
+                    method: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        bootbox.alert(data.result.message);
+                        $("#imgsPreview").empty();
+                        $("#imgsdata").empty();
+                        var productId = $('#ProductId').val();
+                        $.ajax({
+                            url: `/ImagesManager/GetImagesByProductId/${productId}`,
+                            method: "GET",
+                            dataType: "json",
+                            success: function (data) {
+                                imgsNo = data.result.length;
+                                $.each(data.result, function (i, v) {
+                                    $("#imgsPreview").append(
+                                        `<img src="${v.imageData}" height="100" class="mx-2 my-2">
+                                         <a class="remove-image" onclick="image.delete('${v.imageId}')" style="display: inline;">&#215;</a>`
+                                    );
+                                });
+                            }
+                        })
+                    }
+                });
+                product.drawTable();
+            }
+        }
+    });
+};

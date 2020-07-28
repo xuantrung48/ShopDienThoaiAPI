@@ -8,9 +8,9 @@ namespace ShopDienThoai.BAL.Interface
     public interface IImageService
     {
         Task<IEnumerable<Image>> Get();
-        Task<Image> Get(int id);
+        Task<Image> Get(string id);
         Task<IEnumerable<Image>> GetImagesByProductId(string productId);
         Task<ActionImageResult> Save(UploadImagesRequest image);
-        Task<ActionImageResult> Delete(int id);
+        Task<ActionImageResult> Delete(string id);
     }
 }

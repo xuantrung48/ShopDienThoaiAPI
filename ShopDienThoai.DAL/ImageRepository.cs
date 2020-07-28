@@ -12,7 +12,7 @@ namespace ShopDienThoai.DAL
     public class ImageRepository : BaseRepository, IImageRepository
     {
 
-        public async Task<Image> Get(int id)
+        public async Task<Image> Get(string id)
     {
         DynamicParameters parameters = new DynamicParameters();
         parameters.Add("@ImageId", id);
@@ -29,7 +29,7 @@ namespace ShopDienThoai.DAL
         parameters.Add("@productId", productId);
         return await SqlMapper.QueryAsync<Image>(cnn: conn, sql: "GetImagesByProductId", param: parameters, commandType: CommandType.StoredProcedure);
     }
-    public async Task<ActionImageResult> Delete(int id)
+    public async Task<ActionImageResult> Delete(string id)
     {
         DynamicParameters parameters = new DynamicParameters();
         parameters.Add("@ImageId", id);
@@ -54,7 +54,6 @@ namespace ShopDienThoai.DAL
         {
             return new ActionImageResult()
             {
-                ImageId = 0,
                 Message = "Có lỗi xảy ra, xin thử lại!"
             };
         }

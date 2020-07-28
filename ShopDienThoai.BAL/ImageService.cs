@@ -14,7 +14,7 @@ namespace ShopDienThoai.BAL
         {
             this.imageRepository = imageRepository;
         }
-        public async Task<Image> Get(int id)
+        public async Task<Image> Get(string id)
         {
             return await imageRepository.Get(id);
         }
@@ -29,7 +29,7 @@ namespace ShopDienThoai.BAL
             return await imageRepository.GetImagesByProductId(productId);
         }
 
-        public async Task<ActionImageResult> Delete(int id)
+        public async Task<ActionImageResult> Delete(string id)
         {
             return await imageRepository.Delete(id);
         }

@@ -24,7 +24,7 @@ namespace ShopDienThoai.API.Controllers
         }
         [HttpGet]
         [Route("api/images/get/{id}")]
-        public async Task<Image> Get(int id)
+        public async Task<Image> Get(string id)
         {
             return await imageService.Get(id);
         }
@@ -42,7 +42,7 @@ namespace ShopDienThoai.API.Controllers
         }
         [HttpDelete]
         [Route("api/images/delete/{id}")]
-        public async Task<ActionImageResult> Remove(int id)
+        public async Task<ActionImageResult> Remove(string id)
         {
             return await imageService.Delete(id);
         }

@@ -17,7 +17,7 @@ namespace ShopDienThoai.Web.Controllers
             return Json(new { result });
         }
 
-        public JsonResult Get(int id)
+        public JsonResult Get(string id)
         {
             Image result = ApiHelper<Image>.HttpGetAsync($"{Helper.ApiUrl}api/images/get/{id}");
             return Json(new { result });
@@ -28,7 +28,7 @@ namespace ShopDienThoai.Web.Controllers
             List<Image> result = ApiHelper<List<Image>>.HttpGetAsync($"{Helper.ApiUrl}api/images/getimagesbyproductid/{id}");
             return Json(new { result });
         }
-        public JsonResult Delete(int id)
+        public JsonResult Delete(string id)
         {
             ActionImageResult result = ApiHelper<ActionImageResult>.HttpGetAsync($"{Helper.ApiUrl}api/images/delete/{id}", "DELETE");
             return Json(new { result });
