@@ -203,7 +203,7 @@ category.delete = function (id, name) {
 };
 
 category.reset = function () {
-    $('#CategoryName').val("");
+    $('#CategoryName').val('');
     $('#CategoryId').val(0);
 }
 
@@ -272,7 +272,7 @@ product.drawTable = function () {
                         <td>${digitGrouping(p.price)} ₫</td>
                         <td>${p.remain}</td>
                         <td>
-                            <a href="javascripts:;" class="btn btn-primary" onclick="product.get(${p.productId})"><i class="fas fa-edit"></i></a> 
+                            <a href="javascripts:;" class="btn btn-primary" onclick="product.get('${p.productId}')"><i class="fas fa-edit"></i></a> 
                             <a href="javascripts:;" class="btn btn-danger" onclick="product.delete('${p.productId}', '${p.name}')"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>`
@@ -283,36 +283,72 @@ product.drawTable = function () {
     });
 };
 
-product.get = function (id) {
+product.get = function (productId) {
+    product.reset();
+    tinyMCE.triggerSave();
+    var imgsNo;
     $.ajax({
-        url: `/ProductsManager/Get/${id}`,
+        url: `/ImagesManager/GetImagesByProductId/${productId}`,
         method: "GET",
         dataType: "json",
         success: function (data) {
+            imgsNo = data.result.length;
+            $.each(data.result, function (i, v) {
+                $("#imgsPreview").append(
+                    `<img src="${v.imageData}" height="100" class="mx-2 my-2">`
+                );
+            });
+        }
+    })
+    $.ajax({
+        url: `/ProductsManager/Get/${productId}`,
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            let product = data.result;
             $('.modal-title').text("Đổi thông tin sản phẩm");
-            $('#ProductName').val(data.result.name);
-            $('#ProductId').val(data.result.productId);
+            $('#ProductName').val(product.name);
+            $('#ProductId').val(product.productId);
+            $("#imgsNo").val(imgsNo);
+            $('#ProductPrice').val(product.price);
+            $('#ProductBrandId').val(product.brandId);
+            $('#ProductCategoryId').val(product.categoryId);
+            $('#ProductRemain').val(product.remain);
+            tinymce.activeEditor.setContent(product.description);
+            $('#ProductScreen').val(product.screen);
+            $('#ProductCPU').val(product.cpu);
+            $('#ProductOS').val(product.os);
+            $('#ProductRearCamera').val(product.rearCamera);
+            $('#ProductFrontCamera').val(product.frontCamera);
+            $('#ProductRam').val(product.ram);
+            $('#ProductRom').val(product.rom);
             $('#addEditProduct').modal('show');
         }
     });
 };
 
 product.save = function () {
+    tinyMCE.triggerSave();
+    var imgsNo = parseInt($("#imgsNo").val());
     var productObj = {};
-    productObj.ProductId = parseInt($('#ProductId').val());
+    productObj.ProductId = $('#ProductId').val();
     productObj.Name = $('#ProductName').val();
-    productObj.Price = $('#ProductPrice').val();
-    productObj.BrandId = $('#ProductBrandId').val();
-    productObj.CategoryId = $('#ProductCategoryId').val();
-    productObj.Remain = $('#ProductRemain').val();
+    productObj.Price = parseInt($('#ProductPrice').val());
+    productObj.BrandId = parseInt($('#ProductBrandId').val());
+    productObj.CategoryId = parseInt($('#ProductCategoryId').val());
+    productObj.Remain = parseInt($('#ProductRemain').val());
     productObj.Description = $('#ProductDescription').val();
     productObj.Screen = $('#ProductScreen').val();
     productObj.CPU = $('#ProductCPU').val();
     productObj.OS = $('#ProductOS').val();
     productObj.RearCamera = $('#ProductRearCamera').val();
     productObj.FrontCamera = $('#ProductFrontCamera').val();
-    productObj.Ram = $('#ProductRam').val();
-    productObj.Rom = $('#ProductRom').val();
+    productObj.Ram = parseInt($('#ProductRam').val());
+    productObj.Rom = parseInt($('#ProductRom').val());
+    productObj.Images = [];
+    for (let i = 0; i < imgsNo; i++) {
+        productObj.Images[i] = $(`#img${i}`).val();
+    };
     $.ajax({
         url: `/ProductsManager/Save/`,
         method: "POST",
@@ -356,8 +392,22 @@ product.delete = function (id, name) {
 };
 
 product.reset = function () {
-    $('#ProductName').val("");
-    $('#ProductId').val(0);
+    $("#imgsPreview").empty();
+    $("#imgsdata").empty();
+    $('#ProductId').val('');
+    $('#ProductName').val('');
+    $('#ProductPrice').val('');
+    $('#ProductBrandId').val('');
+    $('#ProductCategoryId').val('');
+    $('#ProductRemain').val('');
+    tinymce.activeEditor.setContent('');
+    $('#ProductScreen').val('');
+    $('#ProductCPU').val('');
+    $('#ProductOS').val('');
+    $('#ProductRearCamera').val('');
+    $('#ProductFrontCamera').val('');
+    $('#ProductRam').val('');
+    $('#ProductRom').val('');
 }
 
 AddEditProduct = function () {
@@ -365,3 +415,28 @@ AddEditProduct = function () {
     $('.modal-title').text("Thêm mới sản phẩm");
     $('#addEditProduct').modal('show');
 };
+
+readFiles = function () {
+    $("#imgsPreview").empty();
+    $("#imgsdata").empty();
+    if (this.files && this.files[0]) {
+        for (let i = 0; i < this.files.length; i++) {
+            var FR = new FileReader();
+
+            FR.addEventListener("load", function (e) {
+                $("#imgsPreview").append(
+                    `<img src="${e.target.result}" height="100" class="mx-2 my-2">`
+                );
+                $("#imgsdata").append(
+                    `<input hidden value="${e.target.result}" id="img${i}">`
+                );
+            });
+
+            FR.readAsDataURL(this.files[i]);
+        };
+        $("#imgsdata").append(
+            `<input hidden value="${this.files.length}" id="imgsNo">`
+        );
+    }
+
+}

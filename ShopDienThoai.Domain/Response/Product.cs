@@ -22,7 +22,6 @@ namespace ShopDienThoai.Domain.Response
         [Required(ErrorMessage = "Chưa chọn loại sản phẩm!")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        [Required(ErrorMessage = "Chưa upload ảnh sản phẩm!")]
         public IEnumerable<Image> Images { get; set; }
         public string Description { get; set; }
         public string Screen { get; set; }

@@ -4,7 +4,6 @@ namespace ShopDienThoai.Domain.Response
 {
     public class Image
     {
-        [Required]
         public string ImageId { get; set; }
         public string ImageData { get; set; }
         public string ProductId { get; set; }

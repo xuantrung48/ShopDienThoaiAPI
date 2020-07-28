@@ -1,5 +1,6 @@
 ﻿using ShopDienThoai.BAL.Interface;
 using ShopDienThoai.DAL.Interface;
+using ShopDienThoai.Domain.Request.Images;
 using ShopDienThoai.Domain.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace ShopDienThoai.BAL
             return await imageRepository.Delete(id);
         }
 
-        public async Task<ActionImageResult> Save(Image image)
+        public async Task<ActionImageResult> Save(UploadImagesRequest image)
         {
             return await imageRepository.Save(image);
         }

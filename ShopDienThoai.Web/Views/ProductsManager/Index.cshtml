@@ -33,8 +33,26 @@
                     <h4 class="modal-title"></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body text-right">
+                <div class="modal-body">
                     <input hidden id="ProductId" name="ProductId">
+                    <div id="imgsdata"></div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                        </div>
+                        <div class="col-10" id="imgsPreview">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Ảnh sản phẩm:</label>
+                        </div>
+                        <div class="col-10">
+                            <div class="custom-file">
+                                <input id="ProductImages" name="ProductImages" type="file" class="custom-file-input form-control" data-rule-required="true" multiple>
+                                <label class="custom-file-label" for="ProductImages">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row form-group">
                         <div class="col-2">
                             <label>Tên sản phẩm:</label>
@@ -130,7 +148,7 @@
                             <label>Bài viết mô tả:</label>
                         </div>
                         <div class="col-10">
-                            <textarea id="ProductDescription" name="ProductDescription" class="form-control" data-rule-required="true" placeholder="Viết bài mô tả sản phẩm" rows="55"></textarea>
+                            <textarea id="ProductDescription" name="ProductDescription" class="form-control" data-rule-required="true"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -144,86 +162,60 @@
     </div>
 </div>
 
-@section datatablejs{
+@section Scripts{
     <environment include="Development">
         <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
         <script src="~/lib/bootbox.js/bootbox.js"></script>
+        <script src="~/lib/ekko-lightbox/ekko-lightbox.js"></script>
+        <script src="~/lib/tinymce/tinymce.min.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-    </environment>
-}
-@section datatablecss{
-    <environment include="Development">
-        <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
-    </environment>
-    <environment exclude="Development">
-        <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    </environment>
-}
-@section lightboxjs{
-    <environment include="Development">
-        <script src="~/lib/ekko-lightbox/ekko-lightbox.js"></script>
-    </environment>
-    <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.11/tinymce.min.js"></script>
     </environment>
     <script>
+        document.getElementById("ProductImages").addEventListener("change", readFiles);
+
         $(document).on('click', '[data-toggle="lightbox"]', function (event) {
             event.preventDefault();
             $(this).ekkoLightbox();
         });
+
+        $('#ProductImages').on('change', function () {
+            var fileLabel = $(this).next('.custom-file-label');
+            var files = $(this)[0].files;
+            if (files.length > 1) {
+                fileLabel.html(files.length + ' tập tin được chọn');
+            }
+            else if (files.length == 1) {
+                fileLabel.html(files[0].name);
+            }
+        });
+
+        tinymce.init({
+            selector: 'textarea',
+            theme: 'modern',
+            plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons',
+            image_advtab: true,
+            height: "400"
+        });
     </script>
 }
-@section lightboxcss{
+@section Styles{
     <environment include="Development">
+        <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
         <link href="~/lib/ekko-lightbox/ekko-lightbox.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
+        <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet" />
-    </environment>
-}
-
-@section tinyMCE{
-    <environment include="Development">
-        <script src="~/lib/tinymce/tinymce.min.js"></script>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                theme: 'modern',
-                plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen',
-                    'insertdatetime media nonbreaking save table contextmenu directionality',
-                    'emoticons paste textcolor colorpicker textpattern imagetools'
-                ],
-                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                toolbar2: 'print preview media | forecolor backcolor emoticons',
-                image_advtab: true,
-                content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                    '//www.tinymce.com/css/codepen.min.css'
-                ]
-            });
-        </script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.11/tinymce.min.js"></script>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                theme: 'modern',
-                plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                    'searchreplace wordcount visualblocks visualchars code fullscreen',
-                    'insertdatetime media nonbreaking save table contextmenu directionality',
-                    'emoticons paste textcolor colorpicker textpattern imagetools'
-                ],
-                toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                toolbar2: 'print preview media | forecolor backcolor emoticons',
-                image_advtab: true,
-                content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                    '//www.tinymce.com/css/codepen.min.css'
-                ]
-            });
-        </script>
     </environment>
 }

@@ -1,4 +1,5 @@
-﻿using ShopDienThoai.Domain.Response;
+﻿using ShopDienThoai.Domain.Request.Images;
+using ShopDienThoai.Domain.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace ShopDienThoai.BAL.Interface
         Task<IEnumerable<Image>> Get();
         Task<Image> Get(int id);
         Task<IEnumerable<Image>> GetImagesByProductId(string productId);
-        Task<ActionImageResult> Save(Image image);
+        Task<ActionImageResult> Save(UploadImagesRequest image);
         Task<ActionImageResult> Delete(int id);
     }
 }

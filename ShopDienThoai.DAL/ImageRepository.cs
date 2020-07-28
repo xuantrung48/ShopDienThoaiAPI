@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using ShopDienThoai.DAL.Interface;
+using ShopDienThoai.Domain.Request.Images;
 using ShopDienThoai.Domain.Response;
 using System;
 using System.Collections.Generic;
@@ -35,14 +36,19 @@ namespace ShopDienThoai.DAL
         return await SqlMapper.QueryFirstOrDefaultAsync<ActionImageResult>(cnn: conn, sql: "DeleteImage", param: parameters, commandType: CommandType.StoredProcedure);
     }
 
-    public async Task<ActionImageResult> Save(Image image)
+    public async Task<ActionImageResult> Save(UploadImagesRequest uploadImagesRequest)
     {
         try
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@ImageId", image.ImageId);
-            parameters.Add("@Name", image.ImageData);
-            return await SqlMapper.QueryFirstOrDefaultAsync<ActionImageResult>(cnn: conn, sql: "SaveImage", param: parameters, commandType: CommandType.StoredProcedure);
+            var result = new ActionImageResult();
+            foreach(var img in uploadImagesRequest.Images)
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ProductId", uploadImagesRequest.ProductId);
+                parameters.Add("@ImageData", img);
+                result =  await SqlMapper.QueryFirstOrDefaultAsync<ActionImageResult>(cnn: conn, sql: "SaveImage", param: parameters, commandType: CommandType.StoredProcedure);
+            }
+            return result;
         }
         catch (Exception)
         {

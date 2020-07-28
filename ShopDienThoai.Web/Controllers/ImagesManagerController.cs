@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ShopDienThoai.Domain.Request.Images;
 using ShopDienThoai.Domain.Response;
 using ShopDienThoai.Web.Ultilities;
 
@@ -32,7 +33,7 @@ namespace ShopDienThoai.Web.Controllers
             ActionImageResult result = ApiHelper<ActionImageResult>.HttpGetAsync($"{Helper.ApiUrl}api/images/delete/{id}", "DELETE");
             return Json(new { result });
         }
-        public JsonResult Save([FromBody] Image model)
+        public JsonResult Save([FromBody] UploadImagesRequest model)
         {
             var result = ApiHelper<ActionImageResult>.HttpPostAsync($"{Helper.ApiUrl}api/images/save", model);
             return Json(new { result });

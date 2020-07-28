@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShopDienThoai.BAL.Interface;
+using ShopDienThoai.Domain.Request.Images;
 using ShopDienThoai.Domain.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace ShopDienThoai.API.Controllers
         }
         [HttpPost]
         [Route("api/images/save")]
-        public async Task<ActionImageResult> Save(Image image)
+        public async Task<ActionImageResult> Save(UploadImagesRequest image)
         {
             return await imageService.Save(image);
         }
