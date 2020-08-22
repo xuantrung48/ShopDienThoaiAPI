@@ -69,24 +69,6 @@ namespace ShopDienThoai.Models
                         Name = "Sony"
                     }
                 );
-            modelBuilder.Entity<Product>().HasData(
-                    new Product()
-                    {
-                        ProductId = "1",
-                        Name = "Galaxy A51",
-                        Description = "Galaxy A51 8GB là phiên bản nâng cấp RAM của smartphone tầm trung đình đám Galaxy A51 từ Samsung. Sản phẩm nổi bật với thiết kế sang trọng, màn hình Infinity-O cùng cụm 4 camera đột phá.",
-                        Price = 7790000,
-                        //ImageFileName = "samsung-galaxy-a51-8gb-blue.png",
-                        Screen = "Super AMOLED, \"6.5\",Full HD + ",
-                        CPU = "Exynos 9611 8 nhân",
-                        OS = "Android 10",
-                        FrontCamera = "32 MP",
-                        RearCamera = "Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP",
-                        Ram = 8,
-                        Rom = 128,
-                        Remain = 10
-                    }
-                );
         }
     }
 }
